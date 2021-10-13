@@ -16,7 +16,7 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
     public partial class StudentInfo : Form
     {
         CRUD_operations operations1=new CRUD_operations();
-        static string connectionString = "Data Source=DESKTOP-BPTNHN8;Initial Catalog=PRG2782_Project;Integrated Security=True";
+       
 
        
 
@@ -32,16 +32,9 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
 
         private void StudentInfo_Load(object sender, EventArgs e)
         {
-            //using (SqlConnection sql=new SqlConnection(connectionString))
-            //{
-            //    if (sql.State==ConnectionState.Closed)
-            //    {
-            //        sql.Open();
-            //        studentBindingSource.DataSource = sql.ToString();
-            //    }
-            //}
-
            
+
+
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -60,12 +53,29 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
                 lblEnable.Visible = true;
 
                 txtAddress.Enabled = false;
-                txtImage.Enabled = false;
+                
                 txtPhone.Enabled = false;
                 txtStudentFullname.Enabled = false;
                 txtStudentNumber.Enabled = false;
                 cmbGender.Enabled = false;
                 cmbModuleCode.Enabled = false;
+
+                try
+                {
+                    Student student = studentBindingSource.Current as Student;
+                    if (student!=null)
+                    {
+                        if (!string.IsNullOrEmpty(student.Photo))
+                        {
+                            pictureBox1.Image = Image.FromFile(student.Photo);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
 
             }
         }
@@ -88,12 +98,13 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
             txtAddress.Clear();
             cmbGender.SelectedIndex = -1;
             txtPhone.Clear();
-            cmbModuleCode.SelectedIndex=-1;
+
+            cmbModuleCode.SelectedIndex = -1;
 
             lblEnable.Visible = false;
 
             txtAddress.Enabled = true;
-            txtImage.Enabled = true;
+            
             txtPhone.Enabled = true;
             txtStudentFullname.Enabled = true;
             txtStudentNumber.Enabled = true;
@@ -131,7 +142,7 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtStudentNumber.Text) || String.IsNullOrEmpty(txtStudentFullname.Text) || String.IsNullOrEmpty(cmbGender.Text) || String.IsNullOrEmpty(txtAddress.Text) || String.IsNullOrEmpty(txtPhone.Text) || String.IsNullOrEmpty(cmbModuleCode.Text) || String.IsNullOrEmpty(txtImage.Text))
+            if (string.IsNullOrEmpty(txtStudentNumber.Text) || String.IsNullOrEmpty(txtStudentFullname.Text) || String.IsNullOrEmpty(cmbGender.Text) || String.IsNullOrEmpty(txtAddress.Text) || String.IsNullOrEmpty(txtPhone.Text) || String.IsNullOrEmpty(cmbModuleCode.Text))
             {
                 if (String.IsNullOrEmpty(txtStudentNumber.Text))
                 {
@@ -181,20 +192,18 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
                 {
                     cmbModuleCode.BackColor = SystemColors.Window;
                 }
-                if (String.IsNullOrEmpty(txtImage.Text))
+                if (pictureBox1.Image==null)
                 {
-                    txtImage.BackColor = Color.Red;
+                    MessageBox.Show("Insert image");
                 }
-                else
-                {
-                    txtImage.BackColor = SystemColors.Window;
-                }
+               
+
                 MessageBox.Show("Enter values for all required textboxes");
             }
             else
             {
                 CRUD_operations operations = new CRUD_operations();
-                string msg = operations.addStudent(int.Parse(txtStudentNumber.Text), txtStudentFullname.Text, dateTimePicker1.Text, cmbGender.Text, txtPhone.Text, txtAddress.Text, cmbModuleCode.Text, pictureBox1.Image);
+                string msg = operations.addStudent(int.Parse(txtStudentNumber.Text), txtStudentFullname.Text, this.dateTimePicker1.Text, cmbGender.Text, txtPhone.Text, txtAddress.Text, cmbModuleCode.Text, pictureBox1.Image);
                 MessageBox.Show(msg);
             }
         }
@@ -204,7 +213,7 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
             try
             {
                 CRUD_operations operations = new CRUD_operations();
-                string msg = operations.deleteStudent(int.Parse(txtStudentNumber.Text));
+                string msg = operations.deleteStudent(int.Parse(txtSearch.Text));
                 MessageBox.Show(msg);
             }
             catch

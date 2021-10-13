@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtModuleName = new System.Windows.Forms.TextBox();
-            this.txtModuleCode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtLinks = new System.Windows.Forms.TextBox();
@@ -51,10 +50,7 @@
             this.btnRead = new System.Windows.Forms.Button();
             this.lblEnable = new System.Windows.Forms.Label();
             this.moduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.moduleCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.moduleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.moduleDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.linksDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbModuleCode = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.moduleBindingSource)).BeginInit();
@@ -88,13 +84,6 @@
             this.txtModuleName.Name = "txtModuleName";
             this.txtModuleName.Size = new System.Drawing.Size(268, 20);
             this.txtModuleName.TabIndex = 30;
-            // 
-            // txtModuleCode
-            // 
-            this.txtModuleCode.Location = new System.Drawing.Point(177, 70);
-            this.txtModuleCode.Name = "txtModuleCode";
-            this.txtModuleCode.Size = new System.Drawing.Size(268, 20);
-            this.txtModuleCode.TabIndex = 29;
             // 
             // label2
             // 
@@ -145,14 +134,7 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.moduleCodeDataGridViewTextBoxColumn,
-            this.moduleNameDataGridViewTextBoxColumn,
-            this.moduleDescriptionDataGridViewTextBoxColumn,
-            this.linksDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.moduleBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(485, 9);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -296,37 +278,30 @@
             // 
             this.moduleBindingSource.DataSource = typeof(Project_PRG2782_WMalan_EWalters_JBlignaut.Business_Layer.Module);
             // 
-            // moduleCodeDataGridViewTextBoxColumn
+            // cmbModuleCode
             // 
-            this.moduleCodeDataGridViewTextBoxColumn.DataPropertyName = "ModuleCode";
-            this.moduleCodeDataGridViewTextBoxColumn.HeaderText = "ModuleCode";
-            this.moduleCodeDataGridViewTextBoxColumn.Name = "moduleCodeDataGridViewTextBoxColumn";
-            // 
-            // moduleNameDataGridViewTextBoxColumn
-            // 
-            this.moduleNameDataGridViewTextBoxColumn.DataPropertyName = "ModuleName";
-            this.moduleNameDataGridViewTextBoxColumn.HeaderText = "ModuleName";
-            this.moduleNameDataGridViewTextBoxColumn.Name = "moduleNameDataGridViewTextBoxColumn";
-            // 
-            // moduleDescriptionDataGridViewTextBoxColumn
-            // 
-            this.moduleDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ModuleDescription";
-            this.moduleDescriptionDataGridViewTextBoxColumn.HeaderText = "ModuleDescription";
-            this.moduleDescriptionDataGridViewTextBoxColumn.Name = "moduleDescriptionDataGridViewTextBoxColumn";
-            this.moduleDescriptionDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // linksDataGridViewTextBoxColumn
-            // 
-            this.linksDataGridViewTextBoxColumn.DataPropertyName = "Links";
-            this.linksDataGridViewTextBoxColumn.HeaderText = "Links";
-            this.linksDataGridViewTextBoxColumn.Name = "linksDataGridViewTextBoxColumn";
-            this.linksDataGridViewTextBoxColumn.Width = 150;
+            this.cmbModuleCode.FormattingEnabled = true;
+            this.cmbModuleCode.Items.AddRange(new object[] {
+            "C",
+            "C#",
+            "C++",
+            "Java",
+            "Python",
+            "PHP",
+            "Javascript",
+            "INF",
+            "DBD"});
+            this.cmbModuleCode.Location = new System.Drawing.Point(177, 69);
+            this.cmbModuleCode.Name = "cmbModuleCode";
+            this.cmbModuleCode.Size = new System.Drawing.Size(121, 21);
+            this.cmbModuleCode.TabIndex = 63;
             // 
             // ModuleInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1046, 510);
+            this.Controls.Add(this.cmbModuleCode);
             this.Controls.Add(this.lblEnable);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.btnBack);
@@ -342,7 +317,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtModuleName);
-            this.Controls.Add(this.txtModuleCode);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ModuleInfo";
@@ -362,7 +336,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtModuleName;
-        private System.Windows.Forms.TextBox txtModuleCode;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtLinks;
@@ -381,9 +354,6 @@
         private System.Windows.Forms.Button btnRead;
         private System.Windows.Forms.BindingSource moduleBindingSource;
         private System.Windows.Forms.Label lblEnable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn moduleCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn moduleNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn moduleDescriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn linksDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox cmbModuleCode;
     }
 }

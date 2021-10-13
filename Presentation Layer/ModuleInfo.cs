@@ -43,15 +43,15 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
         {
 
 
-            if (String.IsNullOrEmpty(txtModuleCode.Text) || String.IsNullOrEmpty(txtModuleDescipt.Text) || String.IsNullOrEmpty(txtModuleName.Text) || String.IsNullOrEmpty(txtLinks.Text))
+            if (String.IsNullOrEmpty(cmbModuleCode.Text) || String.IsNullOrEmpty(txtModuleDescipt.Text) || String.IsNullOrEmpty(txtModuleName.Text) || String.IsNullOrEmpty(txtLinks.Text))
             {
-                if (String.IsNullOrEmpty(txtModuleCode.Text))
+                if (String.IsNullOrEmpty(cmbModuleCode.Text))
                 {
-                    txtModuleCode.BackColor = Color.Red;
+                    cmbModuleCode.BackColor = Color.Red;
                 }
                 else
                 {
-                    txtModuleCode.BackColor = SystemColors.Window;
+                    cmbModuleCode.BackColor = SystemColors.Window;
                 }
                 if (String.IsNullOrEmpty(txtModuleName.Text))
                 {
@@ -81,7 +81,7 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
             }
             else
             {
-                string msg = operations.addModule(txtModuleCode.Text, txtModuleName.Text, txtModuleDescipt.Text, txtLinks.Text);
+                string msg = operations.addModule(cmbModuleCode.Text, txtModuleName.Text, txtModuleDescipt.Text, txtLinks.Text);
                 MessageBox.Show(msg);
             }
 
@@ -90,14 +90,14 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            txtModuleCode.Clear();
+            cmbModuleCode.SelectedIndex = -1;
             txtModuleName.Clear();
             txtModuleDescipt.Clear();
             txtLinks.Clear();
 
             txtLinks.Enabled = true;
-            txtModuleCode.Enabled = true;
-            txtModuleDescipt.Enabled = true;
+            cmbModuleCode.Enabled = true;
+            cmbModuleCode.Enabled = true;
             txtModuleName.Enabled = true;
 
             lblEnable.Visible = false;
@@ -108,7 +108,7 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
 
             try
             {
-                string msg = operations.updateModule(txtModuleCode.Text, txtModuleName.Text, txtModuleDescipt.Text, txtLinks.Text);
+                string msg = operations.updateModule(cmbModuleCode.Text, txtModuleName.Text, txtModuleDescipt.Text, txtLinks.Text);
                 MessageBox.Show(msg);
             }
             catch
@@ -150,13 +150,13 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                txtModuleCode.Text = row.Cells[0].Value.ToString();
+                cmbModuleCode.Text = row.Cells[0].Value.ToString();
                 txtModuleName.Text = row.Cells[1].Value.ToString();
                 txtModuleDescipt.Text = row.Cells[2].Value.ToString();
                 txtLinks.Text = row.Cells[3].Value.ToString();
             }
             txtLinks.Enabled = false;
-            txtModuleCode.Enabled = false;
+            cmbModuleCode.Enabled = false;
             txtModuleDescipt.Enabled = false;   
             txtModuleName.Enabled = false;
 

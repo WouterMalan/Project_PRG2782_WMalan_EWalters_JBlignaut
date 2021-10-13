@@ -32,7 +32,7 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Data_Layer
                 sqlCommand.Parameters.AddWithValue("@Desc", desc);
                 sqlCommand.Parameters.AddWithValue("@Link", res);
 
-
+ 
                 connection.Open();
                 sqlCommand.ExecuteNonQuery();
 
