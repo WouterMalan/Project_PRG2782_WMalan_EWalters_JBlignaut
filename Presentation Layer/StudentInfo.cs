@@ -192,10 +192,6 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
                 {
                     cmbModuleCode.BackColor = SystemColors.Window;
                 }
-                if (pictureBox1.Image==null)
-                {
-                    MessageBox.Show("Insert image");
-                }
                
 
                 MessageBox.Show("Enter values for all required textboxes");
@@ -203,8 +199,16 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
             else
             {
                 CRUD_operations operations = new CRUD_operations();
-                string msg = operations.addStudent(int.Parse(txtStudentNumber.Text), txtStudentFullname.Text, this.dateTimePicker1.Text, cmbGender.Text, txtPhone.Text, txtAddress.Text, cmbModuleCode.Text, pictureBox1.Image);
-                MessageBox.Show(msg);
+                if (pictureBox1.Image == null)
+                {
+                    string msg = operations.addStudent(int.Parse(txtStudentNumber.Text), txtStudentFullname.Text, this.dateTimePicker1.Text, cmbGender.Text, txtPhone.Text, txtAddress.Text, cmbModuleCode.Text);
+                      MessageBox.Show(msg);
+                }
+                else
+                {
+                    string msg = operations.addStudent(int.Parse(txtStudentNumber.Text), txtStudentFullname.Text, this.dateTimePicker1.Text, cmbGender.Text, txtPhone.Text, txtAddress.Text, cmbModuleCode.Text, pictureBox1.Image);
+                    MessageBox.Show(msg);
+                }
             }
         }
 
@@ -227,8 +231,16 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
             try
             {
                 CRUD_operations operations = new CRUD_operations();
-                string msg = operations.updateStudent(int.Parse(txtStudentNumber.Text), txtStudentFullname.Text, dateTimePicker1.Text, cmbGender.Text, txtPhone.Text, txtAddress.Text, cmbModuleCode.Text, pictureBox1.Image);
-                MessageBox.Show(msg);
+                if (pictureBox1.Image == null)
+                {
+                    string msg = operations.updateStudent(int.Parse(txtStudentNumber.Text), txtStudentFullname.Text, this.dateTimePicker1.Text, cmbGender.Text, txtPhone.Text, txtAddress.Text, cmbModuleCode.Text);
+                      MessageBox.Show(msg);
+                }
+                else
+                {
+                    string msg = operations.updateStudent(int.Parse(txtStudentNumber.Text), txtStudentFullname.Text, this.dateTimePicker1.Text, cmbGender.Text, txtPhone.Text, txtAddress.Text, cmbModuleCode.Text, pictureBox1.Image);
+                    MessageBox.Show(msg);
+                }
             }
             catch
             {
