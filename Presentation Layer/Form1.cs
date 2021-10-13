@@ -8,6 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//Team members:
+//Wouter Malan - 576739
+//Juanita Blignaut - 576759
+//Euthon Walters - 576758
+
 
 namespace Project_PRG2782_WMalan_EWalters_JBlignaut
 {
