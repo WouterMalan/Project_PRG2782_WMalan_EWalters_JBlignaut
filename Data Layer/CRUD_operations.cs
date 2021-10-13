@@ -38,12 +38,20 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Data_Layer
             }
         }
 
-        public string addStudent(int num, string Fname, string date, string gender, string phone, string address, string moduleCode,string image)
+        public string addStudent(int num, string Fname, string date, string gender, string phone, string address, string moduleCode,Image image)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand sqlCommand = new SqlCommand("spAddStudent", connection);
                 sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                MemoryStream ms = new MemoryStream();
+
+                image.Save(ms, ImageFormat.Jpeg);
+                byte[] photo = new byte[ms.Length];
+                ms.Position = 0;
+                ms.Read(photo, 0, photo.Length);
+
 
                 sqlCommand.Parameters.AddWithValue("@Id", num);
                 sqlCommand.Parameters.AddWithValue("@Name", Fname);
@@ -52,7 +60,7 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Data_Layer
                 sqlCommand.Parameters.AddWithValue("@Phone", phone);
                 sqlCommand.Parameters.AddWithValue("@Address", address);
                 sqlCommand.Parameters.AddWithValue("@Mcode", moduleCode);
-                sqlCommand.Parameters.AddWithValue("@Image", image);
+                sqlCommand.Parameters.AddWithValue("@Image", photo);
 
 
 
@@ -185,12 +193,19 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Data_Layer
             }
         }
 
-        public string updateStudent(int num, string Fname, string date, string gender, string phone, string address, string moduleCode, string image)
+        public string updateStudent(int num, string Fname, string date, string gender, string phone, string address, string moduleCode, Image image)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand sqlCommand = new SqlCommand("spUpdateStudent", connection);
                 sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                MemoryStream ms = new MemoryStream();
+
+                image.Save(ms, ImageFormat.Jpeg);
+                byte[] photo = new byte[ms.Length];
+                ms.Position = 0;
+                ms.Read(photo, 0, photo.Length);
 
                 sqlCommand.Parameters.AddWithValue("@Id", num);
                 sqlCommand.Parameters.AddWithValue("@Name", Fname);
@@ -199,7 +214,7 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Data_Layer
                 sqlCommand.Parameters.AddWithValue("@Phone", phone);
                 sqlCommand.Parameters.AddWithValue("@Address", address);
                 sqlCommand.Parameters.AddWithValue("@Mcode", moduleCode);
-                sqlCommand.Parameters.AddWithValue("@Image", image);
+                sqlCommand.Parameters.AddWithValue("@Image", photo);
 
 
 
