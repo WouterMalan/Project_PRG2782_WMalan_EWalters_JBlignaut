@@ -122,7 +122,7 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
                     Student student=studentBindingSource.Current as Student;
                     if (student!=null)
                     {
-                        student.Photo = odf.FileName;
+                        student.Photo = Image.FromFile(odf.FileName);
                     }
 
                 }
@@ -194,7 +194,7 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
             else
             {
                 CRUD_operations operations = new CRUD_operations();
-                string msg = operations.addStudent(int.Parse(txtStudentNumber.Text), txtStudentFullname.Text, dateTimePicker1.Text, cmbGender.Text, txtPhone.Text, txtAddress.Text, cmbModuleCode.Text, txtImage.Text);
+                string msg = operations.addStudent(int.Parse(txtStudentNumber.Text), txtStudentFullname.Text, dateTimePicker1.Text, cmbGender.Text, txtPhone.Text, txtAddress.Text, cmbModuleCode.Text, pictureBox1.Image);
                 MessageBox.Show(msg);
             }
         }
@@ -218,7 +218,7 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
             try
             {
                 CRUD_operations operations = new CRUD_operations();
-                string msg = operations.updateStudent(int.Parse(txtStudentNumber.Text), txtStudentFullname.Text, dateTimePicker1.Text, cmbGender.Text, txtPhone.Text, txtAddress.Text, cmbModuleCode.Text, txtImage.Text);
+                string msg = operations.updateStudent(int.Parse(txtStudentNumber.Text), txtStudentFullname.Text, dateTimePicker1.Text, cmbGender.Text, txtPhone.Text, txtAddress.Text, cmbModuleCode.Text, pictureBox1.Image);
                 MessageBox.Show(msg);
             }
             catch
