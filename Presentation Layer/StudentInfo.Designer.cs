@@ -69,6 +69,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cmbModuleCode = new System.Windows.Forms.ComboBox();
             this.moduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblEnable = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
@@ -469,11 +470,21 @@
             // 
             this.moduleBindingSource.DataSource = typeof(Project_PRG2782_WMalan_EWalters_JBlignaut.Business_Layer.Module);
             // 
+            // lblEnable
+            // 
+            this.lblEnable.AutoSize = true;
+            this.lblEnable.Location = new System.Drawing.Point(304, 470);
+            this.lblEnable.Name = "lblEnable";
+            this.lblEnable.Size = new System.Drawing.Size(166, 13);
+            this.lblEnable.TabIndex = 60;
+            this.lblEnable.Text = "Press Cancel to enable text fields!";
+            // 
             // StudentInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1254, 611);
+            this.Controls.Add(this.lblEnable);
             this.Controls.Add(this.cmbModuleCode);
             this.Controls.Add(this.txtImage);
             this.Controls.Add(this.label10);
@@ -558,5 +569,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbModuleCode;
         private System.Windows.Forms.BindingSource moduleBindingSource;
+        private System.Windows.Forms.Label lblEnable;
     }
 }

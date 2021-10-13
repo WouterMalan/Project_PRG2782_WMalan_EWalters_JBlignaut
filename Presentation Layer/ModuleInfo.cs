@@ -31,7 +31,7 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
 
         private void ModuleInfo_Load(object sender, EventArgs e)
         {
-
+            lblEnable.Visible = false;
         }
 
         private void btnRead_Click(object sender, EventArgs e)
@@ -94,6 +94,13 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
             txtModuleName.Clear();
             txtModuleDescipt.Clear();
             txtLinks.Clear();
+
+            txtLinks.Enabled = true;
+            txtModuleCode.Enabled = true;
+            txtModuleDescipt.Enabled = true;
+            txtModuleName.Enabled = true;
+
+            lblEnable.Visible = false;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -148,6 +155,13 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
                 txtModuleDescipt.Text = row.Cells[2].Value.ToString();
                 txtLinks.Text = row.Cells[3].Value.ToString();
             }
+            txtLinks.Enabled = false;
+            txtModuleCode.Enabled = false;
+            txtModuleDescipt.Enabled = false;   
+            txtModuleName.Enabled = false;
+
+            lblEnable.Visible = true;
+            
         }
     }
 }

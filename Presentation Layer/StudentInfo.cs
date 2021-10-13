@@ -57,6 +57,16 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
                 txtAddress.Text = row.Cells[5].Value.ToString();
                 cmbModuleCode.Text = row.Cells[6].Value.ToString();
 
+                lblEnable.Visible = true;
+
+                txtAddress.Enabled = false;
+                txtImage.Enabled = false;
+                txtPhone.Enabled = false;
+                txtStudentFullname.Enabled = false;
+                txtStudentNumber.Enabled = false;
+                cmbGender.Enabled = false;
+                cmbModuleCode.Enabled = false;
+
             }
         }
 
@@ -79,7 +89,17 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
             cmbGender.SelectedIndex = -1;
             txtPhone.Clear();
             cmbModuleCode.SelectedIndex=-1;
-            
+
+            lblEnable.Visible = false;
+
+            txtAddress.Enabled = true;
+            txtImage.Enabled = true;
+            txtPhone.Enabled = true;
+            txtStudentFullname.Enabled = true;
+            txtStudentNumber.Enabled = true;
+            cmbGender.Enabled = true;
+            cmbModuleCode.Enabled = true;
+
         }
 
         private void btnBack_Click(object sender, EventArgs e)

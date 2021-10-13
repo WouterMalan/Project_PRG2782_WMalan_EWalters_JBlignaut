@@ -49,6 +49,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnRead = new System.Windows.Forms.Button();
+            this.lblEnable = new System.Windows.Forms.Label();
             this.moduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.moduleCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moduleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -152,7 +153,7 @@
             this.moduleDescriptionDataGridViewTextBoxColumn,
             this.linksDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.moduleBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(484, 18);
+            this.dataGridView1.Location = new System.Drawing.Point(485, 9);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(548, 428);
@@ -282,6 +283,15 @@
             this.btnRead.UseVisualStyleBackColor = false;
             this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
             // 
+            // lblEnable
+            // 
+            this.lblEnable.AutoSize = true;
+            this.lblEnable.Location = new System.Drawing.Point(296, 244);
+            this.lblEnable.Name = "lblEnable";
+            this.lblEnable.Size = new System.Drawing.Size(166, 13);
+            this.lblEnable.TabIndex = 61;
+            this.lblEnable.Text = "Press Cancel to enable text fields!";
+            // 
             // moduleBindingSource
             // 
             this.moduleBindingSource.DataSource = typeof(Project_PRG2782_WMalan_EWalters_JBlignaut.Business_Layer.Module);
@@ -303,18 +313,21 @@
             this.moduleDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ModuleDescription";
             this.moduleDescriptionDataGridViewTextBoxColumn.HeaderText = "ModuleDescription";
             this.moduleDescriptionDataGridViewTextBoxColumn.Name = "moduleDescriptionDataGridViewTextBoxColumn";
+            this.moduleDescriptionDataGridViewTextBoxColumn.Width = 150;
             // 
             // linksDataGridViewTextBoxColumn
             // 
             this.linksDataGridViewTextBoxColumn.DataPropertyName = "Links";
             this.linksDataGridViewTextBoxColumn.HeaderText = "Links";
             this.linksDataGridViewTextBoxColumn.Name = "linksDataGridViewTextBoxColumn";
+            this.linksDataGridViewTextBoxColumn.Width = 150;
             // 
             // ModuleInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1046, 510);
+            this.Controls.Add(this.lblEnable);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnUpdate);
@@ -366,10 +379,11 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnRead;
+        private System.Windows.Forms.BindingSource moduleBindingSource;
+        private System.Windows.Forms.Label lblEnable;
         private System.Windows.Forms.DataGridViewTextBoxColumn moduleCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn moduleNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn moduleDescriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn linksDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource moduleBindingSource;
     }
 }
