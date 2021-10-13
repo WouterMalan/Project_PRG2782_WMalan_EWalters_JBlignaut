@@ -122,7 +122,7 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
                     Student student=studentBindingSource.Current as Student;
                     if (student!=null)
                     {
-                        student.Photo = Image.FromFile(odf.FileName);
+                        student.Photo = Image.FromFile(odf.FileName).ToString();
                     }
 
                 }
