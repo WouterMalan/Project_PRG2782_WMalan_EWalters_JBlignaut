@@ -72,6 +72,27 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Data_Layer
                 return "Student added successfully";
             }
         }
+        public string addStudent(int num, string Fname, string date, string gender, string phone, string address, string moduleCode)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand sqlCommand = new SqlCommand("spAddStudent", connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                sqlCommand.Parameters.AddWithValue("@Id", num);
+                sqlCommand.Parameters.AddWithValue("@Name", Fname);
+                sqlCommand.Parameters.AddWithValue("@Date", date);
+                sqlCommand.Parameters.AddWithValue("@Gender", gender);
+                sqlCommand.Parameters.AddWithValue("@Phone", phone);
+                sqlCommand.Parameters.AddWithValue("@Address", address);
+                sqlCommand.Parameters.AddWithValue("@Mcode", moduleCode);
+
+                connection.Open();
+                sqlCommand.ExecuteNonQuery();
+
+                return "Student added successfully";
+            }
+        }
 
         public string deleteModule(string mcode)
         {
@@ -219,6 +240,26 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Data_Layer
                 sqlCommand.Parameters.AddWithValue("@Image", photo);
 
 
+
+                connection.Open();
+                sqlCommand.ExecuteNonQuery();
+                return "Student updated successfully";
+            }
+        }
+        public string updateStudent(int num, string Fname, string date, string gender, string phone, string address, string moduleCode)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand sqlCommand = new SqlCommand("spUpdateStudent", connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                sqlCommand.Parameters.AddWithValue("@Id", num);
+                sqlCommand.Parameters.AddWithValue("@Name", Fname);
+                sqlCommand.Parameters.AddWithValue("@Date", date);
+                sqlCommand.Parameters.AddWithValue("@Gender", gender);
+                sqlCommand.Parameters.AddWithValue("@Phone", phone);
+                sqlCommand.Parameters.AddWithValue("@Address", address);
+                sqlCommand.Parameters.AddWithValue("@Mcode", moduleCode);
 
                 connection.Open();
                 sqlCommand.ExecuteNonQuery();
