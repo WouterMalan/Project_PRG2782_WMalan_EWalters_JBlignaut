@@ -32,7 +32,7 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
 
         private void StudentInfo_Load(object sender, EventArgs e)
         {
-           
+            lblEnable.Visible = false;
 
 
         }
