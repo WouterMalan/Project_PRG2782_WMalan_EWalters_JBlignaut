@@ -9,6 +9,8 @@ using Project_PRG2782_WMalan_EWalters_JBlignaut.Business_Layer;
 using System.Drawing;
 using Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer;
 using System.Windows.Forms;
+using System.IO;
+using System.Drawing.Imaging;
 
 namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Data_Layer
 {
