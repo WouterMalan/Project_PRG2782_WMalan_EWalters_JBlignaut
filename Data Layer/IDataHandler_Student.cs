@@ -20,12 +20,13 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Data_Layer
 
         string updateStudent(int num, string Fname, string date, string gender, string phone, string address, string moduleCode, Image image);
 
-
+        string updateStudent(int num, string Fname, string date, string gender, string phone, string address, string moduleCode);
 
         string deleteStudent(int num);
 
 
         string addStudent(int num, string Fname, string date, string gender, string phone, string address, string moduleCode, Image image);
+        string addStudent(int num, string Fname, string date, string gender, string phone, string address, string moduleCode);
       
     }
 }
