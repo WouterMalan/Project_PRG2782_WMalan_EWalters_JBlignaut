@@ -152,9 +152,9 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(157)))), ((int)(((byte)(88)))));
             this.label6.Location = new System.Drawing.Point(12, 250);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 20);
+            this.label6.Size = new System.Drawing.Size(119, 20);
             this.label6.TabIndex = 30;
-            this.label6.Text = "Phone:";
+            this.label6.Text = "Phone Number:";
             // 
             // label7
             // 
@@ -185,6 +185,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(268, 20);
             this.txtPhone.TabIndex = 33;
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // txtAddress
             // 

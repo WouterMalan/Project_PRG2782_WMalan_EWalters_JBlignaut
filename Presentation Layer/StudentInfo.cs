@@ -142,7 +142,7 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtStudentNumber.Text) || String.IsNullOrEmpty(txtStudentFullname.Text) || String.IsNullOrEmpty(cmbGender.Text) || String.IsNullOrEmpty(txtAddress.Text) || String.IsNullOrEmpty(txtPhone.Text) || String.IsNullOrEmpty(cmbModuleCode.Text))
+            if (string.IsNullOrEmpty(txtStudentNumber.Text) || String.IsNullOrEmpty(txtStudentFullname.Text) || String.IsNullOrEmpty(cmbGender.Text) || String.IsNullOrEmpty(txtAddress.Text) || String.IsNullOrEmpty(txtPhone.Text) || String.IsNullOrEmpty(cmbModuleCode.Text) )
             {
                 if (String.IsNullOrEmpty(txtStudentNumber.Text))
                 {
@@ -192,13 +192,15 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
                 {
                     cmbModuleCode.BackColor = SystemColors.Window;
                 }
-                if (pictureBox1.Image==null)
-                {
-                    MessageBox.Show("Insert image");
-                }
+                
                
 
                 MessageBox.Show("Enter values for all required textboxes");
+            }
+            
+            else if (pictureBox1.Image == null)
+            {
+                MessageBox.Show("Insert an image using the browse button!");
             }
             else
             {
@@ -239,6 +241,14 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Presentation_Layer
         private void txtStudentNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((!char.IsNumber(e.KeyChar))&& (!char.IsControl(e.KeyChar)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((!char.IsNumber(e.KeyChar)) && (!char.IsControl(e.KeyChar)))
             {
                 e.Handled = true;
             }

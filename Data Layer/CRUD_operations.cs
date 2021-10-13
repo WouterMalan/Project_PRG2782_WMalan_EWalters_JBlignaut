@@ -48,7 +48,7 @@ namespace Project_PRG2782_WMalan_EWalters_JBlignaut.Data_Layer
                 sqlCommand.CommandType = CommandType.StoredProcedure;
 
                 MemoryStream ms = new MemoryStream();
-
+                
                 image.Save(ms, ImageFormat.Jpeg);
                 byte[] photo = new byte[ms.Length];
                 ms.Position = 0;
